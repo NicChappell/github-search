@@ -1,32 +1,22 @@
 // dependencies
-import React, {
-    useEffect,
-    useState
-} from 'react'
+import React from 'react'
 
-// utilities
-import { useDebounce } from '../../utils'
-
-const Input = () => {
-    // state hooks
-    const [query, setQuery] = useState('')
-
-    // custom hooks
-    const debouncedQuery = useDebounce(query, 333)
-
-    // effect hooks
-    useEffect(() => {
-        console.log(debouncedQuery)
-    }, [debouncedQuery])
+const Input = (props) => {
+    // props
+    const {
+        setQuery,
+        query
+    } = props
 
     return (
-        <div className="row" id="input">
+        <div className="row input">
             <div className="col s12 input-field">
                 <i className="material-icons prefix">search</i>
                 <input
                     onChange={e => setQuery(e.target.value)}
-                    placeholder="Tetris"
+                    placeholder="Enter search term (e.g. Tetris)"
                     type="text"
+                    value={query}
                 />
             </div>
         </div>

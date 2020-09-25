@@ -1,20 +1,28 @@
 // dependencies
 import React from 'react'
 
-const Card = () => {
+
+
+// number of stars, language, and the owners name
+
+
+
+const Card = ({ searchResult }) => {
     return (
-        <div className="col s12 m6">
+        <div className="col s12 l6 search-result">
             <div className="card">
                 <div className="card-content">
-                    <span className="card-title">Card Title</span>
-                    <p>
-                        I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.
-                    </p>
+                    <span className="card-title">{searchResult.name}</span>
+                    <p>{searchResult.description}</p>
+                    <ul>
+                        <li><b>Owner:</b> {searchResult.owner.login}</li>
+                        <li><b>Language:</b> {searchResult.language}</li>
+                        <li><b>Stars:</b> {searchResult.stargazers_count. toLocaleString()}</li>
+                    </ul>
                 </div>
                 <div className="card-action">
-                    <button className="btn">More Details</button>
-                    <a className="btn" href="https://github.com/NicChappell/github-search">GitHub Repo</a>
+                    <a className="black-text" href="#">More Details</a>
+                    <a className="black-text" href={searchResult.html_url} target="_blank">GitHub Repo</a>
                 </div>
             </div>
         </div>
