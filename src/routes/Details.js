@@ -42,15 +42,15 @@ const Details = ({ searchResults }) => {
                                 </tr>
                                 <tr>
                                     <td>Homepage</td>
-                                    <td><a href={details.homepage} target="_blank">{details.homepage}</a></td>
+                                    <td><a href={details.homepage} rel="noopener noreferrer" target="_blank">{details.homepage}</a></td>
                                 </tr>
                                 <tr>
                                     <td>HTML URL</td>
-                                    <td><a href={details.html_url} target="_blank">{details.html_url}</a></td>
+                                    <td><a href={details.html_url} rel="noopener noreferrer" target="_blank">{details.html_url}</a></td>
                                 </tr>
                                 <tr>
                                     <td>API URL</td>
-                                    <td><a href={details.url} target="_blank">{details.url}</a></td>
+                                    <td><a href={details.url} rel="noopener noreferrer" target="_blank">{details.url}</a></td>
                                 </tr>
                                 <tr>
                                     <td>Clone URL</td>

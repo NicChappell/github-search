@@ -2,11 +2,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
-// number of stars, language, and the owners name
-
-
-
 const Card = ({ searchResult }) => {
     return (
         <div className="col s12 l6 search-result">
@@ -22,7 +17,7 @@ const Card = ({ searchResult }) => {
                 </div>
                 <div className="card-action">
                     <Link className="black-text" to={`/${searchResult.full_name}`}>More Details</Link>
-                    <a className="black-text" href={searchResult.html_url} target="_blank">GitHub Repo</a>
+                    <a className="black-text" href={searchResult.html_url} rel="noopener noreferrer" target="_blank">GitHub Repo</a>
                 </div>
             </div>
         </div>

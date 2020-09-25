@@ -33,7 +33,6 @@ const App = () => {
     const [errors, setErrors] = useState({ isValid: false })
     const [filters, setFilters] = useState([])
     const [searchResults, setSearchResults] = useState([])
-    console.log(searchResults)
     const [sortMethod, setSortMethod] = useState('best-match')
     const [query, setQuery] = useState('')
 
@@ -82,6 +81,7 @@ const App = () => {
                     )}
                 />
                 <Route
+                    exact
                     path="/:owner/:repo"
                     render={() => <Details searchResults={searchResults} />}
                 />
