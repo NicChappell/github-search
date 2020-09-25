@@ -13,6 +13,10 @@ git clone https://github.com/NicChappell/github-search.git
 ...
 
 cd github-search
+npm install
+
+...
+
 npm start
 ```
 
