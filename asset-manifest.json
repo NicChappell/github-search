@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/github-search/static/css/main.0da449d7.chunk.css",
+    "main.js": "/github-search/static/js/main.e600aa53.chunk.js",
+    "main.js.map": "/github-search/static/js/main.e600aa53.chunk.js.map",
+    "runtime-main.js": "/github-search/static/js/runtime-main.0993e2ff.js",
+    "runtime-main.js.map": "/github-search/static/js/runtime-main.0993e2ff.js.map",
+    "static/js/2.8741e2eb.chunk.js": "/github-search/static/js/2.8741e2eb.chunk.js",
+    "static/js/2.8741e2eb.chunk.js.map": "/github-search/static/js/2.8741e2eb.chunk.js.map",
+    "index.html": "/github-search/index.html",
+    "precache-manifest.f1dbbe745995f3f28e6ebe17369a7bf8.js": "/github-search/precache-manifest.f1dbbe745995f3f28e6ebe17369a7bf8.js",
+    "service-worker.js": "/github-search/service-worker.js",
+    "static/css/main.0da449d7.chunk.css.map": "/github-search/static/css/main.0da449d7.chunk.css.map",
+    "static/js/2.8741e2eb.chunk.js.LICENSE.txt": "/github-search/static/js/2.8741e2eb.chunk.js.LICENSE.txt",
+    "static/media/homer.png": "/github-search/static/media/homer.116ad562.png",
+    "static/media/logo.png": "/github-search/static/media/logo.c51345dd.png",
+    "static/media/no-results.png": "/github-search/static/media/no-results.8d56af85.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0993e2ff.js",
+    "static/js/2.8741e2eb.chunk.js",
+    "static/css/main.0da449d7.chunk.css",
+    "static/js/main.e600aa53.chunk.js"
+  ]
+}
