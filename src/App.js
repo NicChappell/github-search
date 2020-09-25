@@ -82,7 +82,6 @@ const App = () => {
                     )}
                 />
                 <Route
-                    exact
                     path="/:owner/:repo"
                     render={() => <Details searchResults={searchResults} />}
                 />
