@@ -62,12 +62,12 @@ const App = () => {
     }, [errors])
 
     return (
-        <Router>
+        <Router basename="/github-search">
             <Navbar />
             <Switch>
                 <Route
                     exact
-                    path="/github-search/"
+                    path="/"
                     render={() => (
                         <Search
                             errors={errors}
@@ -83,7 +83,7 @@ const App = () => {
                 />
                 <Route
                     exact
-                    path="/github-search/:owner/:repo"
+                    path="/:owner/:repo"
                     render={() => <Details searchResults={searchResults} />}
                 />
                 <Route path="*" component={NoMatch} />
