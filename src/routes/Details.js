@@ -1,7 +1,7 @@
 // dependencies
 import React from 'react'
 
-const Details = () => {
+const Details = ({ searchResult }) => {
     return (
         <div className="container" id="details">
             <div className="row">

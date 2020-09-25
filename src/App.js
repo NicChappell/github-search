@@ -1,4 +1,6 @@
 // dependencies
+import axios from 'axios'
+import isEmpty from 'lodash.isempty'
 import React, {
     useEffect,
     useState
@@ -8,46 +10,57 @@ import {
     Switch,
     Route
 } from 'react-router-dom'
-import axios from 'axios'
 
 // components
 import Navbar from './components/layout/Navbar'
 
 // routes
 import Details from './routes/Details'
-import Home from './routes/Home'
 import NoMatch from './routes/NoMatch'
+import Search from './routes/Search'
 
 // utilities
 import { useDebounce } from './utils'
+
+// validation
+import { validateSearch } from './validation'
 
 // static files
 import './css/styles.css'
 
 const App = () => {
     // state hooks
-    const [repo, setRepo] = useState('')
+    const [details, setDetails] = useState('')
+    const [errors, setErrors] = useState(true)
     const [filters, setFilters] = useState([])
     const [searchResults, setSearchResults] = useState([])
     const [sortMethod, setSortMethod] = useState('best-match')
     const [query, setQuery] = useState('')
 
     // custom hooks
-    const debouncedQuery = useDebounce(query, 333)
+    const debouncedQuery = useDebounce(query, 250)
 
     // effect hooks
     useEffect(() => {
     }, [])
 
     useEffect(() => {
-        if (debouncedQuery.length > 5) {
+        // validate debounced query
+        const errors = validateSearch(debouncedQuery)
+
+        // update state
+        setErrors(errors)
+    }, [debouncedQuery])
+
+    useEffect(() => {
+        if (isEmpty(errors)) {
             axios.get(`https://api.github.com/search/repositories?q=${debouncedQuery}`)
                 .then(res => setSearchResults(res.data.items))
                 .catch(err => console.log(err))
         } else {
             setSearchResults([])
         }
-    }, [debouncedQuery])
+    }, [errors])
 
     useEffect(() => {
         console.log(searchResults)
@@ -63,7 +76,8 @@ const App = () => {
                             exact
                             path="/"
                             render={() => (
-                                <Home
+                                <Search
+                                    errors={errors}
                                     filters={filters}
                                     searchResults={searchResults}
                                     setFilters={setFilters}
@@ -74,7 +88,21 @@ const App = () => {
                                 />
                             )}
                         />
-                        <Route exact path="/:repoName" component={Details} />
+                        <Route
+                            exact
+                            path="/:repoName"
+                            render={() => (
+                                <Details
+                                    filters={filters}
+                                    searchResults={searchResults}
+                                    setFilters={setFilters}
+                                    setSortMethod={setSortMethod}
+                                    sortMethod={sortMethod}
+                                    setQuery={setQuery}
+                                    query={query}
+                                />
+                            )}
+                        />
                         <Route path="*" component={NoMatch} />
                     </Switch>
                 </div>

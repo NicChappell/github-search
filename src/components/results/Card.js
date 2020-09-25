@@ -1,6 +1,6 @@
 // dependencies
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 
 
 // number of stars, language, and the owners name
@@ -21,7 +21,7 @@ const Card = ({ searchResult }) => {
                     </ul>
                 </div>
                 <div className="card-action">
-                    <a className="black-text" href="#">More Details</a>
+                    <Link className="black-text" to="/asdf">More Details</Link>
                     <a className="black-text" href={searchResult.html_url} target="_blank">GitHub Repo</a>
                 </div>
             </div>

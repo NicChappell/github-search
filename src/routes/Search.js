@@ -6,9 +6,10 @@ import CardContainer from '../components/results/CardContainer'
 import NoResults from '../components/results/NoResults'
 import Input from '../components/search/Input'
 
-const Home = (props) => {
+const Search = (props) => {
     // props
     const {
+        errors,
         filters,
         searchResults,
         setFilters,
@@ -33,8 +34,9 @@ const Home = (props) => {
     }
 
     return (
-        <div className="container" id="home">
+        <div className="container" id="search">
             <Input
+                errors={errors}
                 setQuery={setQuery}
                 query={query}
             />
@@ -43,4 +45,4 @@ const Home = (props) => {
     )
 }
 
-export default Home
+export default Search

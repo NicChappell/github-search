@@ -1,9 +1,11 @@
 // dependencies
+import isEmpty from 'lodash.isempty'
 import React from 'react'
 
 const Input = (props) => {
     // props
     const {
+        errors,
         setQuery,
         query
     } = props
@@ -18,6 +20,7 @@ const Input = (props) => {
                     type="text"
                     value={query}
                 />
+                {!isEmpty(errors) ? <span className="errors">{errors.message}</span> : null}
             </div>
         </div>
     )
