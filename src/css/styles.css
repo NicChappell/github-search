@@ -1,0 +1,60 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+}
+
+nav .container {
+  height: 100%;
+}
+nav .container a {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+nav .container a img {
+  height: 90%;
+}
+
+#app-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#no-match .col {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media only screen and (min-width: 601px) {
+  #no-match .col {
+    height: 400px;
+  }
+}
+#no-match .col h1 {
+  font-size: 6.3rem;
+  font-weight: 700;
+}
+#no-match .col img {
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+}
+
+#router-container {
+  flex: 1 0 auto;
+  padding: 2rem 0;
+}
+
+/*# sourceMappingURL=styles.css.map */
