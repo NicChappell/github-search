@@ -3,7 +3,9 @@ export const validateSearch = (searchTerm) => {
     let errors = {}
 
     // validate minimum length
-    if (searchTerm.length >= 1 && searchTerm.length <= 4) {
+    if (searchTerm.length === 0) {
+        errors = { isValid: false }
+    } else if (searchTerm.length >= 1 && searchTerm.length <= 4) {
         errors = {
             isValid: false,
             message: 'search term must have more than 4 characters'

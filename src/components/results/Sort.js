@@ -7,7 +7,6 @@ const Sort = (props) => {
         setSortMethod,
         sortMethod
     } = props
-    console.log(sortMethod)
 
     const handleChange = e => setSortMethod(e.currentTarget.value)
 

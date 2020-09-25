@@ -17,11 +17,11 @@ const Card = ({ searchResult }) => {
                     <ul>
                         <li><b>Owner:</b> {searchResult.owner.login}</li>
                         <li><b>Language:</b> {searchResult.language}</li>
-                        <li><b>Stars:</b> {searchResult.stargazers_count. toLocaleString()}</li>
+                        <li><b>Stars:</b> {searchResult.stargazers_count.toLocaleString()}</li>
                     </ul>
                 </div>
                 <div className="card-action">
-                    <Link className="black-text" to="/asdf">More Details</Link>
+                    <Link className="black-text" to={`/${searchResult.full_name}`}>More Details</Link>
                     <a className="black-text" href={searchResult.html_url} target="_blank">GitHub Repo</a>
                 </div>
             </div>

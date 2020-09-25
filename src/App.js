@@ -30,10 +30,10 @@ import './css/styles.css'
 
 const App = () => {
     // state hooks
-    const [details, setDetails] = useState('')
-    const [errors, setErrors] = useState(true)
+    const [errors, setErrors] = useState({ isValid: false })
     const [filters, setFilters] = useState([])
     const [searchResults, setSearchResults] = useState([])
+    console.log(searchResults)
     const [sortMethod, setSortMethod] = useState('best-match')
     const [query, setQuery] = useState('')
 
@@ -42,14 +42,13 @@ const App = () => {
 
     // effect hooks
     useEffect(() => {
-    }, [])
-
-    useEffect(() => {
         // validate debounced query
         const errors = validateSearch(debouncedQuery)
 
         // update state
         setErrors(errors)
+        setFilters([])
+        setSortMethod('best-match')
     }, [debouncedQuery])
 
     useEffect(() => {
@@ -62,51 +61,33 @@ const App = () => {
         }
     }, [errors])
 
-    useEffect(() => {
-        console.log(searchResults)
-    }, [searchResults])
-
     return (
         <Router>
-            <div id="app-container">
-                <Navbar />
-                <div id="router-container">
-                    <Switch>
-                        <Route
-                            exact
-                            path="/"
-                            render={() => (
-                                <Search
-                                    errors={errors}
-                                    filters={filters}
-                                    searchResults={searchResults}
-                                    setFilters={setFilters}
-                                    setSortMethod={setSortMethod}
-                                    sortMethod={sortMethod}
-                                    setQuery={setQuery}
-                                    query={query}
-                                />
-                            )}
+            <Navbar />
+            <Switch>
+                <Route
+                    exact
+                    path="/"
+                    render={() => (
+                        <Search
+                            errors={errors}
+                            filters={filters}
+                            searchResults={searchResults}
+                            setFilters={setFilters}
+                            setSortMethod={setSortMethod}
+                            sortMethod={sortMethod}
+                            setQuery={setQuery}
+                            query={query}
                         />
-                        <Route
-                            exact
-                            path="/:repoName"
-                            render={() => (
-                                <Details
-                                    filters={filters}
-                                    searchResults={searchResults}
-                                    setFilters={setFilters}
-                                    setSortMethod={setSortMethod}
-                                    sortMethod={sortMethod}
-                                    setQuery={setQuery}
-                                    query={query}
-                                />
-                            )}
-                        />
-                        <Route path="*" component={NoMatch} />
-                    </Switch>
-                </div>
-            </div>
+                    )}
+                />
+                <Route
+                    exact
+                    path="/:owner/:repo"
+                    render={() => <Details searchResults={searchResults} />}
+                />
+                <Route path="*" component={NoMatch} />
+            </Switch>
         </Router>
     )
 }

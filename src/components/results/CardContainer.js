@@ -28,12 +28,12 @@ const CardContainer = (props) => {
         // make a copy of search results array
         const searchResultsCopy = searchResults.map(searchResult => searchResult)
 
-        // sort temp array
+        // sort copied array
         if (sortMethod === 'stars') {
             searchResultsCopy.sort((a, b) => (a.stargazers_count < b.stargazers_count) ? 1 : -1)
         }
 
-        // filter temp array
+        // filter copied array
         let filteredSearchResults = []
         if (filters.length > 0) {
             filteredSearchResults = searchResultsCopy.filter(searchResult => filters.includes(searchResult.language))
@@ -43,7 +43,7 @@ const CardContainer = (props) => {
 
         // update state
         setMutatedSearchResults(filteredSearchResults)
-    }, [filters, sortMethod])
+    }, [filterOptions, filters, sortMethod])
 
     useEffect(() => {
         // isolate language from search results array
@@ -51,7 +51,6 @@ const CardContainer = (props) => {
 
         // update state
         setFilterOptions([...new Set(languages)])
-        setMutatedSearchResults(searchResults)
     }, [searchResults])
 
     return (

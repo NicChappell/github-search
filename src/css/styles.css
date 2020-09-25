@@ -30,6 +30,10 @@ nav .container a img {
   flex-direction: column;
 }
 
+#details table tbody tr td:first-child {
+  font-weight: bold;
+}
+
 #search .card-container .filters p,
 #search .card-container .sort p {
   display: inline-block;

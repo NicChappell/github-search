@@ -20,7 +20,7 @@ const Input = (props) => {
                     type="text"
                     value={query}
                 />
-                {!isEmpty(errors) ? <span className="errors">{errors.message}</span> : null}
+                {!isEmpty(errors.message) ? <span className="errors">{errors.message}</span> : null}
             </div>
         </div>
     )

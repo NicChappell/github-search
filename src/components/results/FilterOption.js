@@ -1,5 +1,6 @@
 // dependencies
 import React, {
+    useEffect,
     useState
 } from 'react'
 
@@ -22,6 +23,13 @@ const FilterOption = (props) => {
         // update state
         setChecked(!checked)
     }
+
+    // effect hooks
+    useEffect(() => {
+        filters.includes(filterOption)
+            ? setChecked(true)
+            : setChecked(false)
+    }, [filters])
 
     return (
         <p>

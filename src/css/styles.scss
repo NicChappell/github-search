@@ -33,6 +33,17 @@ nav {
 }
 
 #details {
+    table {
+        tbody {
+            tr {
+                td {
+                    &:first-child {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
 }
 
 #search {
