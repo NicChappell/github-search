@@ -67,7 +67,7 @@ const App = () => {
             <Switch>
                 <Route
                     exact
-                    path="/"
+                    path="/github-search/"
                     render={() => (
                         <Search
                             errors={errors}
@@ -83,7 +83,7 @@ const App = () => {
                 />
                 <Route
                     exact
-                    path="/:owner/:repo"
+                    path="/github-search/:owner/:repo"
                     render={() => <Details searchResults={searchResults} />}
                 />
                 <Route path="*" component={NoMatch} />
